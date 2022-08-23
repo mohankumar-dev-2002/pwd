@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+}
+h2{
+    background-color: #FCE2DB;
+    color:#000;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.ol,
+.ul,
+.dl {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    flex-direction:column;
+}
+li,dt{
+    margin-top: 30px;
+}
+.ol {
+    
+
+    background-color: #FCE2DB;
+    height: 90vh;
+    width: 100vw;
+}
+
+.ul {
+    background-color: #FF8FB1;
+    height: 100vh;
+    width: 100vw;
+}
+
+.dl {
+    background-color: #B270A2;
+    height: 100vh;
+    width: 100vw;
+}
