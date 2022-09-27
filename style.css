@@ -1,0 +1,31 @@
+*{
+margin :0;
+padding:0;
+box-sizing:border-box;
+font-family:cursive,san-serif;
+color:#fff;
+}
+.center{
+display:flex;
+justify-content: center;
+align-items: center; 
+flex-direction: column;
+}
+.header{
+height:100vh;
+padding-top:10px;
+background-color:#293462;
+}
+img{
+width:150px;
+height:150px;
+border-radius:50%;
+display:block;
+}
+ol,li {
+    list-style: disc outside none;
+    margin-top: 20px;
+}
+h2{
+    margin-top: 8%;
+}
