@@ -1,52 +1,29 @@
-const apiKey = "d9cbe63f3a4246410203de14ae702acd";
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    var randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6
+    const weather = {
+        1: { "18": "rainy" },
+        2: { "32": "sunny" },
+        3: { "23": "cloudy" },
+        4: { "-5": "freezy" },
+        5: { "18": "mid wind" },
+        6: { "38": "hot" }
+    }
+    var selfWeather = weather[randomNumber1]
+    const city = search.value;
 
-const main = document.getElementById('main');
-const form = document.getElementById('form');
-const search = document.getElementById('search');
-
-const url = (city) => `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-
-
-async function getWeatherByLocation(city) {
-
-    const resp = await fetch(url(city), {
-        origin: "cros"
-    });
-    const respData = await resp.json();
-
-    addWeatherToPage(respData);
-
-}
-
+    if (city) {
+        addWeatherToPage(selfWeather)
+    }
+})
 function addWeatherToPage(data) {
-    const temp = Ktoc(data.main.temp);
-
     const weather = document.createElement('div')
     weather.classList.add('weather');
 
     weather.innerHTML = `
-          <h2><img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /> ${temp}°C <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h2>
-          <small>${data.weather[0].main}</small>
-          
+          <h2>${Object.keys(data)}</h2>
+          <small>${Object.values(data)}</small>
           `;
     main.innerHTML = "";
     main.appendChild(weather);
 };
-
-
-function Ktoc(K) {
-    return Math.floor(K - 273.15);
-}
-
-
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const city = search.value;
-
-    if (city) {
-        getWeatherByLocation(city)
-    }
-
-});
